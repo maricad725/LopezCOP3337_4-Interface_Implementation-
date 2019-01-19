@@ -40,7 +40,7 @@ public class App {
         System.out.println("Size of Array\t       Sort Time\t\tSort Type");
         System.out.println("---------------------------------------------------------------");
 
-        for (int i = 1; i < 7; i++){
+        for (int i = 1; i < 6; i++){
 
         int size =(int)Math.pow(10, i);
         int[] a = ArrayUtil.randomIntArray((int)size,100);
