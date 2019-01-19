@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="LOPEZ_COP3337_Assignment4">
+  <ClassDiagramComponents>
+    <Class name="App" package="MainProject" visibility="public" xPosition="356.0" yPosition="8.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="analyzeSort" returnType="void" visibility="public" isStatic="true">
+          <Argument type="StopWatch" name="stopWatch"/>
+          <Argument type="Sorter" name="sorter"/>
+          <Argument type="int[]" name="a"/>
+        </Method>
+        <Method name="output" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Printer" name="printer"/>
+          <Argument type="StopWatch" name="stopWatch"/>
+          <Argument type="int" name="size"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MergeSorter" package="Sorter" visibility="public" xPosition="13.0" yPosition="357.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="sort" returnType="void" visibility="public">
+          <Argument type="int[]" name="a"/>
+        </Method>
+        <Method name="merge" returnType="void" visibility="private">
+          <Argument type="int[]" name="first"/>
+          <Argument type="int[]" name="second"/>
+          <Argument type="int[]" name="a"/>
+        </Method>
+        <Method name="outputToConsole" returnType="void" visibility="public">
+          <Argument type="StopWatch" name="stopwatch"/>
+          <Argument type="int" name="size"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SelectionSorter" package="Sorter" visibility="public" xPosition="423.0" yPosition="357.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="sort" returnType="void" visibility="public">
+          <Argument type="int[]" name="a"/>
+        </Method>
+        <Method name="minimumPosition" returnType="int" visibility="private">
+          <Argument type="int[]" name="a"/>
+          <Argument type="int" name="from"/>
+        </Method>
+        <Method name="outputToConsole" returnType="void" visibility="public">
+          <Argument type="StopWatch" name="stopwatch"/>
+          <Argument type="int" name="size"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ArrayUtil" package="Util" visibility="public" xPosition="46.0" yPosition="8.0">
+      <Fields>
+        <Field name="Generator" type="Random" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="randomIntArray" returnType="int[]" visibility="public" isStatic="true">
+          <Argument type="int" name="length"/>
+          <Argument type="int" name="n"/>
+        </Method>
+        <Method name="Swap" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int[]" name="a"/>
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="j"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="StopWatch" package="Util" visibility="public" xPosition="972.0" yPosition="47.0">
+      <Fields>
+        <Field name="elapsedTime" type="long" visibility="private"/>
+        <Field name="startTime" type="long" visibility="private"/>
+        <Field name="isRunning" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public"/>
+        <Method name="stop" returnType="void" visibility="public"/>
+        <Method name="getElapsedtTime" returnType="long" visibility="public"/>
+        <Method name="reset" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Sorter" package="Sorter" visibility="public" xPosition="27.0" yPosition="191.0">
+      <Methods>
+        <Method name="sort" returnType="void" visibility="package">
+          <Argument type="int[]" name="a"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Printer" package="Util" visibility="public" xPosition="423.0" yPosition="191.0">
+      <Methods>
+        <Method name="outputToConsole" returnType="void" visibility="package">
+          <Argument type="StopWatch" name="stopwatch"/>
+          <Argument type="int" name="size"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Sorter.MergeSorter" target="Sorter.Sorter"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Sorter.SelectionSorter" target="Sorter.Sorter"/>
+    <UseRelation source="Sorter.MergeSorter" target="Util.StopWatch" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="MainProject.App" target="Util.StopWatch" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Sorter.SelectionSorter" target="Util.StopWatch" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Sorter.SelectionSorter" target="Util.Printer"/>
+    <UseRelation source="Util.Printer" target="Util.StopWatch" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Sorter.MergeSorter" target="Util.Printer"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

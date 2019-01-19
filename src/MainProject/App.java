@@ -14,32 +14,44 @@
 //                 none of it is the work of any other person.
 //=============================================================================
 
+//=============================================================================
+// This porject utilizes interfaces, sorting methods, and documented java class
+// programs to create a time table comparing the runtime of two different sorting 
+// algorithms: Selection sort and Merge sort
+//==============================================================================
+
 package MainProject;
 
-
+// imports from Sorter package
 import Sorter.MergeSorter;
 import Sorter.SelectionSorter;
 import Sorter.Sorter;
 
+// imports from Util package
 import Util.ArrayUtil;
 import Util.Printer;
 import Util.StopWatch;
 
+// import Arrays utility class from Java API
 import java.util.Arrays;
 
-
+// Main class that runs the program
 public class App {
 
     public static void main(String[] args) {
- 
+  
         StopWatch stopWatch = new StopWatch();
         SelectionSorter selectionSorter = new SelectionSorter();
         MergeSorter mergeSorter = new MergeSorter();
-
- 
+        
+        //======================================================================
+        // Header of sort array time table 
+        //======================================================================
         System.out.println("Size of Array\t       Sort Time\t\tSort Type");
         System.out.println("---------------------------------------------------------------");
-
+        
+        
+        
         for (int i = 1; i < 6; i++){
 
         int size =(int)Math.pow(10, i);
@@ -53,6 +65,10 @@ public class App {
         
 }// end main
 
+    //==========================================================================
+    // Helper Functions 
+    //==========================================================================
+    
     public static void analyzeSort(StopWatch stopWatch, Sorter sorter, int[] a){
         
         stopWatch.start();            
