@@ -17,7 +17,7 @@
 //=============================================================================
 // This porject utilizes interfaces, sorting methods, and documented java class
 // programs to create a time table comparing the runtime of two different sorting 
-// algorithms: Selection sort and Merge sort
+// Sorting algorithms: Selection sort and Merge sort
 //==============================================================================
 
 package MainProject;
@@ -39,7 +39,9 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
-  
+    //=========================================================
+    // Stopwatch and Sorting Objects
+    //=========================================================
         StopWatch stopWatch = new StopWatch();
         SelectionSorter selectionSorter = new SelectionSorter();
         MergeSorter mergeSorter = new MergeSorter();
@@ -51,6 +53,11 @@ public class App {
         System.out.println("---------------------------------------------------------------");
         
         
+        //======================================================================
+        // Main Sort Time algorithm:
+        // Size of arrays are in powers of ten from 1-6
+        // Utilizes analyzeSort method to time the sorting objects 
+        // =====================================================================
         
         for (int i = 1; i < 6; i++){
 
@@ -65,10 +72,14 @@ public class App {
         
 }// end main
 
-    //==========================================================================
-    // Helper Functions 
-    //==========================================================================
+//==============================================================================
+// Helper Functions 
+//==============================================================================
     
+    //==========================================================================
+    // Measures the runtime of the sorting algorithms for sorter objects
+    // Then it prints out the results in milliseconds using seperate function 
+    //==========================================================================
     public static void analyzeSort(StopWatch stopWatch, Sorter sorter, int[] a){
         
         stopWatch.start();            
@@ -77,7 +88,11 @@ public class App {
 
         output((Printer)sorter, stopWatch, a.length);
     }
-
+    
+    //==========================================================================
+    // Handles the printing aspect of analyzeSort method:
+    // Calls the implemented Printer method from sorting objects
+    //==========================================================================
     public static void output(Printer printer, StopWatch stopWatch, int size){
         
         printer.outputToConsole(stopWatch, size);
